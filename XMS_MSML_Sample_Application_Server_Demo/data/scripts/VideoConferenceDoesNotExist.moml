@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moml version="1.0" id="VideoConferenceDoesNotExist">
+	<play>
+      <media>
+         <audio uri="%MEDIA_URI_BASE%/ConferenceDoesNotExist.pcm" format="audio/proprietary;codecs=linear" audiosamplerate="8" audiosamplesize="16"/>
+         <video uri="%MEDIA_URI_BASE%/ConferenceDoesNotExist.vid" format="video/proprietary;codecs=h264"/>
+      </media>
+	</play>
+</moml>

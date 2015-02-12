@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moml version="1.0" id="VideoGetMailboxNumber">
+   <group topology="parallel">
+      <play>
+         <media>
+            <audio uri="%MEDIA_URI_BASE%/EnterMailboxNumber.pcm" format="audio/proprietary;codecs=linear" audiosamplerate="8" audiosamplesize="16"/>
+            <video uri="%MEDIA_URI_BASE%/EnterMailboxNumber.vid" format="video/proprietary;codecs=h264"/>
+         </media>
+         <playexit>
+            <send target="collect" event="starttimer"/>
+         </playexit>
+      </play>
+      <collect fdt="5s" idt="5s">
+         <pattern digits="*">
+            <send target="source" event="done" 
+                  namelist="dtmf.digits dtmf.end"/>
+         </pattern>
+         <pattern digits="xxx">
+            <send target="source" event="done" 
+                  namelist="dtmf.digits dtmf.end"/>
+         </pattern>
+         <detect>
+            <send target="play" event="terminate"/>
+         </detect>
+         <noinput>
+            <send target="source" event="done" 
+                  namelist="dtmf.end"/>
+         </noinput>
+         <nomatch>
+            <send target="source" event="done" 
+                  namelist="dtmf.end"/>
+         </nomatch>
+      </collect>
+   </group>
+</moml>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moml version="1.0" id="VoiceNotImplemented">
+   <play>
+      <audio uri="%MEDIA_URI_BASE%/NotImplemented.wav" format="audio/wav"/>
+   </play>
+</moml>
+

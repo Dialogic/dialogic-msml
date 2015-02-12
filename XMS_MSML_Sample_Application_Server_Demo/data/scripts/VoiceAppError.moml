@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moml version="1.0" id="VoiceAppError">
+   <play>
+      <audio uri="%MEDIA_URI_BASE%/AppError.wav" format="audio/wav"/>
+   </play>
+</moml>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moml version="1.0" id="VoiceGetConferenceId">
+   <group topology="parallel">
+      <play>
+         <audio uri="%MEDIA_URI_BASE%/EnterConferenceId.wav" format="audio/wav"/>
+         <playexit>
+            <send target="collect" event="starttimer"/>
+         </playexit>
+      </play>
+      <collect fdt="5s" idt="5s">
+         <pattern digits="*">
+            <send target="source" event="done" 
+                  namelist="dtmf.digits dtmf.end"/>
+         </pattern>
+         <pattern digits="xxx">
+            <send target="source" event="done" 
+                  namelist="dtmf.digits dtmf.end"/>
+         </pattern>
+         <detect>
+            <send target="play" event="terminate"/>
+         </detect>
+         <noinput>
+            <send target="source" event="done" 
+                  namelist="dtmf.end"/>
+         </noinput>
+         <nomatch>
+            <send target="source" event="done" 
+                  namelist="dtmf.end"/>
+         </nomatch>
+      </collect>
+   </group>
+</moml>
